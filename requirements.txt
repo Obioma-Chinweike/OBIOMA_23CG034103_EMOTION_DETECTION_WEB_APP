@@ -1,0 +1,7 @@
+Flask==2.3.2
+tensorflow==2.14.1
+opencv-python
+pillow
+numpy
+sqlalchemy
+gunicorn
