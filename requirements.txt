@@ -5,3 +5,4 @@ pillow
 numpy
 sqlalchemy
 gunicorn
+python-3.11.9

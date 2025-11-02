@@ -4,14 +4,12 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
 import sqlite3
-import sys  # <-- for Python version check
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load trained model
 model = load_model("emotion_detector.h5")
 
-# Define emotion labels
 emotions = ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
 @app.route('/')
@@ -31,6 +29,8 @@ def predict():
     if file.filename == '':
         return 'No selected file', 400
 
+    # Ensure static folder exists
+    os.makedirs('static', exist_ok=True)
     filepath = os.path.join('static', file.filename)
     file.save(filepath)
 
@@ -51,10 +51,11 @@ def predict():
 
     return render_template('index.html', emotion=predicted_emotion, image_path=filepath, username=username)
 
-# TEMPORARY route to check Python version
+# TEMP route to check Python version
 @app.route('/check')
 def check():
-    return f"Python version on server: {sys.version}"
+    import sys
+    return sys.version
 
 if __name__ == '__main__':
     app.run(debug=True)
