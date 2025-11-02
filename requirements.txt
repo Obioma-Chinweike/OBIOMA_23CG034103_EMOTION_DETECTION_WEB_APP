@@ -1,7 +1,7 @@
-Flask==2.3.2
-tensorflow==2.14.1
-numpy==1.25.2
-pillow==10.1.0
-opencv-python==4.8.1.78
-sqlalchemy==2.0.19
-gunicorn==21.2.0
+Flask==3.0.3
+tensorflow==2.20.0
+opencv-python
+pillow
+numpy
+sqlalchemy
+gunicorn
